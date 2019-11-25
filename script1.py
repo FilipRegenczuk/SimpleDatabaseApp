@@ -15,4 +15,14 @@ def insert(item, quantity, price):
     connection.close()
 
 
-insert('Water', 10, 2.99)
+#insert('Water', 10, 2.99)
+
+def view():
+    connection = sqlite3.connect("lite.db")
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM store")
+    rows = cursor.fetchall()
+    connection.close()
+    return rows
+
+print(view())
